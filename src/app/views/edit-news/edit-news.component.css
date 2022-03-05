@@ -1,0 +1,27 @@
+.errors {
+  color: red;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border: thin solid red;
+}
+
+label,
+button {
+  text-transform: capitalize;
+}
+
+.container {
+  max-width: 65% !important;
+}
+
+.container {
+  max-width: 700px !important;
+}
+
+.row {
+  padding: 20px;
+  box-shadow: 1px;
+  box-shadow: 0px 0px 40px 0px grey;
+  border-radius: 10px;
+}

@@ -1,0 +1,39 @@
+<div class="container mt-5 mb-5">
+
+  <div class="row justify-content-center m-auto">
+    <form #contactForm="ngForm" (ngSubmit)="updateProfile(contactForm.value)">
+
+      <div class="form-group mt-3 mb-3">
+        <label for="name">Full Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" ngModel required
+          #name='ngModel' [(ngModel)]="author.name">
+        <div class='errors d-flex justify-content-center' *ngIf="name.invalid && name.touched">
+          <div *ngIf="name.errors?.['required']">"Name is required"</div>
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="address">Your address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" ngModel
+          #address='ngModel' [(ngModel)]="author.address">
+        <div class='errors d-flex justify-content-center' *ngIf="address.invalid && address.touched">
+          <div *ngIf="address.errors?.['required']">"Address is required"</div>
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="phone">Phone number</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" ngModel
+          required #phone='ngModel' [(ngModel)]="author.phone">
+        <div class='errors d-flex justify-content-center' *ngIf="phone.invalid && phone.touched">
+          <div *ngIf="phone.errors?.['required']">"Phone number is required"</div>
+        </div>
+      </div>
+
+      <input type="file" name="avater" ngModel (change)="handelUpload($event)">
+
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="contactForm.invalid">Submit</button>
+    </form>
+
+  </div>
+</div>

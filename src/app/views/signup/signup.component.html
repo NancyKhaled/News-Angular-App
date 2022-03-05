@@ -1,0 +1,73 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center m-auto">
+
+    <form #contactForm="ngForm" (ngSubmit)="signUp(contactForm.value)">
+
+      <div class="form-group mt-3 mb-3">
+        <label for="name">Full Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" ngModel required
+          #name='ngModel'>
+        <div class='errors d-flex justify-content-center' *ngIf="name.invalid && name.touched">
+          <div *ngIf="name.errors?.['required']">"Name is required"</div>
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="age">Your age</label>
+        <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" ngModel
+          #age='ngModel' (focus)="changeAge()">
+        <div class='errors d-flex justify-content-center' *ngIf="invalidAge">"{{msg}}"</div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="address">Your address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" ngModel
+          required #address='ngModel'>
+        <div class='errors d-flex justify-content-center' *ngIf="address.invalid && address.touched">
+          <div *ngIf="address.errors?.['required']">"Address is required"</div>
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" ngModel required
+          email #email='ngModel' (focus)="changeEmail()">
+        <div class='errors d-flex justify-content-center' *ngIf="email.invalid && email.touched">
+          <div *ngIf="email.errors?.['required']">"Email is required"</div>
+          <div *ngIf="email.errors?.['email']">"Email is invalid"</div>
+        </div>
+        <div class='errors d-flex justify-content-center' *ngIf="invalidEmail">Email is already used... try another one"
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" name="password" placeholder="Enter your password" ngModel
+          required minlength=6 #password='ngModel' (focus)="changePassword()">
+        <div class='errors d-flex justify-content-center' *ngIf="password.invalid && password.touched">
+          <div *ngIf="password.errors?.['required']">"Password is required"</div>
+          <div *ngIf="password.errors?.['minlength']">"Password minlength is
+            {{password.errors?.['minlength'].requiredLength}}
+            ... you entered {{password.errors?.['minlength'].actualLength}}"</div>
+        </div>
+        <div class='errors d-flex justify-content-center' *ngIf="invalidPassword">{{msg}}
+        </div>
+      </div>
+
+      <div class="form-group mt-3 mb-3">
+        <label for="phone">Phone number</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" ngModel
+          required #phone='ngModel' (focus)="changePhoneNumber()">
+        <div class='errors d-flex justify-content-center' *ngIf="phone.invalid && phone.touched">
+          <div *ngIf="phone.errors?.['required']">"Phone number is required"</div>
+        </div>
+        <div class='errors d-flex justify-content-center' *ngIf="invalidPhoneNumber">{{msg}}
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Submit</button>
+    </form>
+
+  </div>
+</div>

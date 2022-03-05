@@ -1,0 +1,29 @@
+
+<div class="container mt-5 mb-5">
+  <form [formGroup]="newsForm" (ngSubmit)="addNews(newsForm.value)">
+
+    <div class="form-group mt-3 mb-3">
+      <label for="title">News title</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter news title" formControlName="title">
+      <div class='errors d-flex justify-content-center' *ngIf="myValues['title'].invalid && myValues['title'].touched">
+        <div *ngIf="myValues['title'].errors?.['required']">"News title is required"</div>
+      </div>
+    </div>
+
+    <div class="form-group mt-3 mb-3">
+      <label for="description">News description</label>
+      <input type="text" class="form-control" id="description" placeholder="Enter news description"
+        formControlName="description">
+      <div class='errors d-flex justify-content-center'
+        *ngIf="myValues['description'].invalid && myValues['description'].touched">
+        <div *ngIf="myValues['description'].errors?.['required']">"News description is required"</div>
+      </div>
+    </div>
+
+    <input type="file" (change)="handelUpload($event)" formControlName="image">
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="newsForm.invalid">Submit</button>
+
+  </form>
+
+</div>

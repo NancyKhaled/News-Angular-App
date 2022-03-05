@@ -1,0 +1,19 @@
+<div class="container mt-5 mb-5  pb-4 text-center">
+  <div class="row justify-content-center">
+    <h2 class="text-center p-3">Welcome {{author.name}}</h2>
+    <h4>Your data:</h4>
+    <hr>
+    <ul>
+      <li><img src="data:image/png;base64,{{author.avatar}}" class="rounded-circle" width="200px" alt="profile pic">
+      </li>
+      <li><span>your phone number:</span>
+        {{author.phone}}</li>
+      <li><span>your email:</span>
+        {{author.email}}</li>
+      <li><span>your address:</span>
+        {{author.address}}</li>
+    </ul>
+    <button class="btn btn-sm btn-primary m-3" routerLink="/addNews">Add news</button>
+    <button class="btn btn-sm btn-primary m-3" routerLink="/viewNews">View news</button>
+  </div>
+</div>

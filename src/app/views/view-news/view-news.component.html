@@ -1,0 +1,23 @@
+<div class="container mt-5 mb-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-5" *ngFor="let theNews of news; let i = index">
+
+      <div class="card">
+        <img src="data:image/png;base64,{{theNews.image}}" class="card-img-top" alt="news image">
+        <div class="card-body">
+          <h5 class="card-title">{{theNews.title}}</h5>
+          <p class="card-text">{{theNews.description}}</p>
+          <div class="card-footer text-center">
+            <a class="btn btn-success btn-sm m-3" routerLink="/editNews/{{theNews._id}}">Update</a>
+            <a class="btn btn-danger btn-sm m-3" (click)="deleteNews(theNews._id ,i)">Delete</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
